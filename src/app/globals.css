@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ground: #f5f2ec;
+  --color-surface: #ffffff;
+  --color-sunken: #ece7de;
+  --color-ink: #1b1a17;
+  --color-muted: #6b665d;
+  --color-line: #e3ded4;
+  --color-accent: #1f5f4a;
+  --color-accent-soft: #e1eee8;
+  --color-on-accent: #ffffff;
+  --color-danger: #b42318;
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-fraunces);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-ground: #141311;
+    --color-surface: #1d1c19;
+    --color-sunken: #262420;
+    --color-ink: #f1ede6;
+    --color-muted: #a29c91;
+    --color-line: #34312c;
+    --color-accent: #6fc2a3;
+    --color-accent-soft: #1d3a30;
+    --color-on-accent: #10221b;
+    --color-danger: #f97066;
+  }
+}
+
+body {
+  background: var(--color-ground);
+  color: var(--color-ink);
+}
+
+@layer components {
+  .field {
+    @apply w-full rounded-xl border border-line bg-surface px-3.5 py-2.5 text-base text-ink outline-none focus:border-accent;
+  }
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl bg-accent px-5 py-2.5 font-medium text-on-accent transition-opacity hover:opacity-90 disabled:opacity-50;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-xl border border-line bg-surface px-3.5 py-2 text-sm font-medium text-ink transition-colors hover:bg-sunken;
+  }
+  .card {
+    @apply rounded-2xl border border-line bg-surface;
+  }
+  .chip {
+    @apply inline-flex items-center rounded-full bg-sunken px-2.5 py-0.5 text-xs font-medium text-muted;
+  }
+  .label {
+    @apply text-xs font-semibold uppercase tracking-wider text-muted;
+  }
+}
